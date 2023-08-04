@@ -61,4 +61,39 @@ console.log( NaN || null && !3 && undefined || 5); //5
 
 console.log( 5 === 5 && 3 > 1 || 5); //5===5/true */
 
-(1 > 0) ? console.log("1>0") : console.log("1<=0");
+/* (1 > 0) ? console.log("1>0") : console.log("1<=0"); */
+
+/* //Выполняется ли условие?
+const hamburger = 3;
+//const fries = 3;
+const fries = 2;
+const cola = 0;
+const nuggets = 2;
+
+
+if (hamburger === 3 && cola || fries === 3 && nuggets) { //true
+	console.log("Done!");
+}
+(hamburger === 3 && cola || fries === 3 && nuggets) ? console.log("Done!") : console.log("идите на хуй я вас не звал"); */
+
+/* let hamburger;
+const fries = NaN;
+const cola = 0;
+const nuggets = 2;
+
+
+if (hamburger || cola || fries === 3 || nuggets) { //true-nuggets
+	console.log("Done!/true-nuggets");
+} */
+
+/* let hamburger;
+const fries = NaN;
+const cola = 0;
+const nuggets = 2;
+
+
+if (hamburger && cola || fries === 3 && nuggets) { //false
+	console.log("Done!");
+} else {
+	console.log("идите на хуй я вас не звал лжывые ублюдки");
+} */
