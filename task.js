@@ -139,9 +139,9 @@ let h = document.querySelector("h1");
 let numberOfFilms;
 
 function start() {
-	//numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+	numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "").trim();
 	while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
-		numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+		numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "").trim();
 	}
 }
 start();
@@ -201,7 +201,9 @@ showMyDB();
 function writeYourGenres () {
 	for(let i = 1; i <= 3; i++) {
 		const genre = prompt(`Ваш любимый жанр под номером ${i}`).trim();
-		personalMovieDB.genres.push(genre);
+		if(genre != "" && genre != null && genre <= 10) {
+			personalMovieDB.genres.push(genre);
+		}
 	}
 }
 
