@@ -197,7 +197,7 @@ console.log(result); */
 "use strict";
 
 // Код возьмите из предыдущего домашнего задания
-let h = document.querySelector("h1");
+/* let h = document.querySelector("h1");
 
 const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
 
@@ -207,7 +207,7 @@ const personalMovieDB = {
 	actors: {},
 	genres: [],
 	privat: false
-};
+}; */
 
 /* for(let i = 0; i < 2; i++) {
 	const a = prompt("Один из последних просмотренных фильмов?", ""),
@@ -219,7 +219,7 @@ const personalMovieDB = {
 		i--;
 	}
 } */
-let i = 0;
+/* let i = 0; */
 /* do {
 	const a = prompt("Один из последних просмотренных фильмов?", ""),
 		b = prompt("На сколько оцените его?", "");
@@ -232,7 +232,7 @@ let i = 0;
 	i++;
 } while ( i < 2); */
 
-while (i < 2) {
+/* while (i < 2) {
 	const a = prompt("Один из последних просмотренных фильмов?", ""),
 		b = prompt("На сколько оцените его?", "");
 	if (a != null && a != "" && b != null && b != "" && a.length <= 50 && b.length <= 2) {
@@ -243,7 +243,7 @@ while (i < 2) {
 	}
 	i++;
 }
-
+ */
 /* if(personalMovieDB.count < 10) {
 	//console.log("Просмотрено довольно мало фильмов");
 	h.textContent = "Просмотрено довольно мало фильмов";
@@ -259,7 +259,7 @@ while (i < 2) {
 	h.textContent = "Произошла ошибка";
 } */
 
-switch (true) {
+/* switch (true) {
 case personalMovieDB.count < 10:
 	h.textContent = "Просмотрено довольно мало фильмов";
 	break;
@@ -272,11 +272,41 @@ case personalMovieDB.count >= 30:
 	break;
 default:
 	h.textContent = "Произошла ошибка";
-}
+} */
 
 //тернарный оператор не подходит для множества проверок
 /* (personalMovieDB.count < 10) ? h.textContent = "Просмотрено довольно мало фильмов" : h.textContent = "Произошла ошибка";
 (personalMovieDB.count >= 10) ? h.textContent = "Просмотрено довольно много фильмов" : h.textContent = "Произошла ошибка";
 (personalMovieDB.count >= 30) ? h.textContent = "Вы киноман" : h.textContent = "Произошла ошибка"; */
 
-console.log(personalMovieDB);
+/* console.log(personalMovieDB); */
+
+/* function sayHello(x) {
+	return `sayHello('${x}')`;
+}
+console.log(sayHello("Антон")); */
+
+/* function returnNeighboringNumbers(x) {
+	return [x -1,x,x + 1];
+}
+console.log(returnNeighboringNumbers(10)); */
+
+/* function getMathResult(x,y) {
+	if (typeof(y) !== "number" || y <= 0) {
+		return x;
+	}
+
+	let str = "";
+
+	for (let i = 1; i <= y; i++) {
+		if (i === y) {
+			str += `${x * i}`;
+		} else {
+			str += `${x * i}---`;
+		}
+	}
+
+	return str;
+}
+
+console.log(getMathResult(5,3)); */
