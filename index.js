@@ -512,7 +512,7 @@ console.log(newObj);
 let {one, two, tree} = obj;
 console.log(tree); */
 
-const personalPlanPeter = {
+/* const personalPlanPeter = {
 	name: "Peter",
 	age: "29",
 	skills: {
@@ -550,7 +550,7 @@ function showProgrammingLangs(plan) {
 	let str = "";
 	let {programmingLangs} = plan.skills;
 	if (Object.keys(programmingLangs) != 0) {
-    	Object.keys(programmingLangs).forEach(i => {str += `Язык ${i} изучен на ${programmingLangs[i]} \n`;});
+		Object.keys(programmingLangs).forEach(i => {str += `Язык ${i} изучен на ${programmingLangs[i]} \n`;});
 		return str;
 	} else {
 		str += "пустая строка";
@@ -558,4 +558,79 @@ function showProgrammingLangs(plan) {
 	}
 }
 let f2 = showProgrammingLangs(personalPlanPeter);
-console.log(f2);
+console.log(f2); */
+
+/* ----------------------------------- */
+/* 
+const family = ["Peter", "Ann", "Alex", "Linda"];
+
+function showFamily(arr) {
+	if(arr.length != 0) {
+		let str = "Семья состоит из:";
+		for(let key in arr) {
+			str += ` ${arr[key]}`;
+		}
+		return str;
+	} else {
+		str = "Семья пустая";
+		return str;
+	}
+}
+console.log(showFamily(family)); */
+
+/* let uuu = {
+	a:1,
+	b:2,
+	n:4,
+};
+
+Object.keys(uuu).forEach(i => {
+	console.log(uuu.i = "a");
+});
+
+ */
+
+/* const favoriteCities = ["liSBon", "ROME", "miLan", "Dublin"];
+
+function standardizeStrings(arr) {
+	for(let key in arr) {
+		console.log(arr[key].toLowerCase());
+	}
+}
+
+standardizeStrings(favoriteCities);
+ */
+
+/* const someString = "This is some strange string";
+
+function reverse(str) {
+	//let arr = Array.from(str);
+	//let arr = str.split('');
+	let arr = [...str];
+	return arr.reverse().join('');
+}
+
+console.log(reverse(someString)); */
+
+const baseCurrencies = ["USD", "EUR"];
+const additionalCurrencies = ["UAH", "RUB", "CNY"];
+additionalCurrencies.pop();
+
+function availableCurr(arr, missingCurr) {
+	let str = `Доступные валюты в baseCurrencies-${arr.length} и additionalCurrencies-${missingCurr.length}: \n`;
+	if(arr != 0 || missingCurr != 0) {
+		for( let key in arr) {
+			str += `${arr[key]} \n`;
+		}
+		for(let key in missingCurr) {
+			str += `${missingCurr[key]} \n`;
+		}
+	}
+	else {
+		str = `Нет доступных валют в baseCurrencies и additionalCurrencies. Наличие: ${arr.length + missingCurr.length}`;
+	}
+	return str;
+    
+}
+
+console.log(availableCurr(baseCurrencies, additionalCurrencies));
