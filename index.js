@@ -471,7 +471,7 @@ console.log(newObj2);
 //В ES6 есть элементы rest для деструктурирующего присваивания и spread элементы для работы с литерал массивами.
 //Давайте посмотрим на то, как сработает элемент spread на массиве:
 
-const array = [
+/* const array = [
 	"a",
 	"c",
 	"d", {
@@ -492,8 +492,70 @@ let obj = {
 let newObj = { ...obj };
 console.log(newObj);
 
+//Обратите внимание, что этот подход действенен для поверхностной копии. */
+
 /* ----------------------------------- */
 
 //https://medium.com/@stasonmars/копирование-объектов-в-javascript-d25c261a7aff
 
 /* ----------------------------------- */
+
+/* let obj = {
+	one: 1,
+	two: 2,
+	tree: {
+		four: 4,
+		five: 5,
+	}
+};
+
+let {one, two, tree} = obj;
+console.log(tree); */
+
+const personalPlanPeter = {
+	name: "Peter",
+	age: "29",
+	skills: {
+		languages: ["ru", "eng"],
+		programmingLangs: {
+			js: "20%",
+			php: "10%"
+		},
+		exp: "1 month"
+	},
+	showAgeAndLangs: function(plan) {
+		let {age} = plan;
+		let {languages} = plan.skills;
+		let str = `Мне ${age} и я владею: `;
+		languages.forEach(i => {
+			str += `${i.toUpperCase()} `;
+		});
+		return str;
+	}
+};
+
+let f0 = personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+console.log(f0);
+
+function showExperience(plan) {
+	let str = "";
+	let {exp} = plan.skills;
+	str += exp;
+	return str;
+}
+let f1 = showExperience(personalPlanPeter);
+console.log(f1);
+
+function showProgrammingLangs(plan) {
+	let str = "";
+	let {programmingLangs} = plan.skills;
+	if (Object.keys(programmingLangs) != 0) {
+    	Object.keys(programmingLangs).forEach(i => {str += `Язык ${i} изучен на ${programmingLangs[i]} \n`;});
+		return str;
+	} else {
+		str += "пустая строка";
+		return str;
+	}
+}
+let f2 = showProgrammingLangs(personalPlanPeter);
+console.log(f2);
