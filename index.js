@@ -612,7 +612,7 @@ function reverse(str) {
 
 console.log(reverse(someString)); */
 
-const baseCurrencies = ["USD", "EUR"];
+/* const baseCurrencies = ["USD", "EUR"];
 const additionalCurrencies = ["UAH", "RUB", "CNY"];
 additionalCurrencies.pop();
 
@@ -633,4 +633,5 @@ function availableCurr(arr, missingCurr) {
     
 }
 
-console.log(availableCurr(baseCurrencies, additionalCurrencies));
+console.log(availableCurr(baseCurrencies, additionalCurrencies)); */
+

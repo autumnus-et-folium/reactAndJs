@@ -136,75 +136,76 @@ P.S. Функции вызывать не обязательно*/
 
 let h = document.querySelector("h1");
 
-let numberOfFilms;
-
-function start() {
-	numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "").trim();
-	while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
-		numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "").trim();
-	}
-}
-start();
-
 const personalMovieDB = {
-	count: numberOfFilms,
+	count: 0,
 	movies: {},
 	actors: {},
 	genres: [],
-	privat: false
+	privat: false,
+	start: function () {
+		personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
+		while (personalMovieDB.count == "" || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+			personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
+		}
+	},
+	rememberMyFilms: function() {
+		for(let i = 0; i < 2; i++) {
+			const a = prompt("Один из последних просмотренных фильмов?", ""),
+				b = prompt("На сколько оцените его?", "");
+			if (a != null && a != "" && b != null && b != "" && a.length <= 50 && b.length <= 2) {
+				personalMovieDB.movies[a] = b;
+			} else {
+				console.log("вводи значения мудила");
+				i--;
+			}
+		}
+	},
+	detectPersonalLevel: function () {
+		if(personalMovieDB.count < 10) {
+			//console.log("Просмотрено довольно мало фильмов");
+			h.textContent = "Просмотрено довольно мало фильмов";
+		
+		} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+			//console.log("Просмотрено довольно много фильмов");
+			h.textContent = "Просмотрено довольно много фильмов";
+		} else if (personalMovieDB.count >= 30) {
+			//console.log("Вы киноман");
+			h.textContent = "Вы киноман";
+		} else {
+			//console.log("Произошла ошибка");
+			h.textContent = "Произошла ошибка";
+		}
+	},
+	showMyDB: function () {
+		if(personalMovieDB.privat === false) {
+			console.log(personalMovieDB);
+		}
+	},
+	toggleVisibleMyDB: function() {
+		if (personalMovieDB.privat) {
+			personalMovieDB.privat = false;
+		} else {
+			personalMovieDB.privat = true;
+		}
+	},
+	writeYourGenres: function () {
+		for(let i = 1; i <= 3; i++) {
+			const genre = prompt(`Ваш любимый жанр под номером ${i}`);
+			if(genre != "" && genre != null){
+				personalMovieDB.genres.push(genre);
+			} else {
+				i--;
+			}
+		}
+		personalMovieDB.genres.forEach((item, i) => {
+			console.log(`Любимый жанр ${i + 1} - это ${item}`);
+		} );
+	},
 };
 
-
-
-function rememberMyFilms() {
-	for(let i = 0; i < 2; i++) {
-		const a = prompt("Один из последних просмотренных фильмов?", "").trim(),
-			b = prompt("На сколько оцените его?", "").trim();
-		if (a != null && a != "" && b != null && b != "" && a.length <= 50 && b.length <= 2) {
-			personalMovieDB.movies[a] = b;
-		} else {
-			console.log("вводи значения мудила");
-			i--;
-		}
-	}
-}
-
-rememberMyFilms();
-
-function detectPersonalLevel () {
-	if(personalMovieDB.count < 10) {
-		//console.log("Просмотрено довольно мало фильмов");
-		h.textContent = "Просмотрено довольно мало фильмов";
-    
-	} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-		//console.log("Просмотрено довольно много фильмов");
-		h.textContent = "Просмотрено довольно много фильмов";
-	} else if (personalMovieDB.count >= 30) {
-		//console.log("Вы киноман");
-		h.textContent = "Вы киноман";
-	} else {
-		//console.log("Произошла ошибка");
-		h.textContent = "Произошла ошибка";
-	}
-}
-
-detectPersonalLevel();
-
-function showMyDB () {
-	if(personalMovieDB.privat === false) {
-		console.log(personalMovieDB);
-	}
-}
-
-showMyDB();
-
-function writeYourGenres () {
-	for(let i = 1; i <= 3; i++) {
-		const genre = prompt(`Ваш любимый жанр под номером ${i}`).trim();
-		if(genre != "" && genre != null && genre <= 10) {
-			personalMovieDB.genres.push(genre);
-		}
-	}
-}
-
-writeYourGenres();
+personalMovieDB.start();  // Инициализация запроса количества фильмов
+personalMovieDB.rememberMyFilms();  // Запрос и сохранение информации о фильмах
+personalMovieDB.detectPersonalLevel();  // Определение уровня интереса к фильмам
+personalMovieDB.writeYourGenres();  // Ввод и отображение любимых жанров
+personalMovieDB.toggleVisibleMyDB();  // Переключение видимости приватной базы данных
+personalMovieDB.showMyDB();  // Отображение базы данных (если она не является приватной)
